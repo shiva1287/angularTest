@@ -1,0 +1,42 @@
+<p>databinding works!</p>
+
+<div>{{ name }}</div>
+<div [innerHTML]="name"></div>
+
+<div>{{ user | json }}</div>
+<div>{{ cars }}</div>
+
+<img src="{{ img_url }}" alt="" /> &nbsp; <img [src]="img_url" alt="" /> &nbsp;
+<img bind-src="img_url" alt="" /> &nbsp; 1 way : <input value="{{ name }}" /> 1
+way : <input [value]="name" /> 1 way : <input bind-value="name" /> 2 way :
+<input [(ngModel)]="name" />
+
+<button disabled="{{ flag }}" class="btn btn-primary">Click Me</button>&nbsp;
+<button [disabled]="flag" class="btn btn-primary">Click Me</button>&nbsp;
+<button bind-disabled="flag" class="btn btn-primary">Click Me</button>
+
+<button (click)="f1()">btn-1</button>
+<button on-click="f1()">btn-1</button>
+==========================================================================
+<h1 [hidden]="flag">Hellloooooooooooooooooooooooooooooo</h1>
+<button (click)="toggleFlag()">{{ flag ? "SHOW" : "HIDE" }}</button>
+<br />=====================================================================<br />
+<input type="password" />
+<button>SHOW/HIDE</button>
+<br />=====================================================================<br />
+Number1: <input type="number" #num1 /> Number2: <input type="number" ref-num2 />
+<button (click)="addition(+num1.value, +num2.value)" class="btn btn-primary">
+  Add
+</button>
+<br />=====================================================================<br />
+<h1 style="color:green">Class Binding</h1>
+<input type="number" [(ngModel)]="val1" />
+<h2 [class.text-danger]="val1 % 2 !== 0">
+    {{ val1 }} is {{ val1 % 2 == 0 ? "Even" : "Odd" }}
+</h2>
+<button class="btn" [ngClass]="flag ? 'btn-success' : 'btn-danger'">
+    Class Binding example
+</button>
+<br />=====================================================================<br />
+<h1>Style Binding</h1>
+<p [style.color]="flag?'green':'red'">This is a paragraph</p>

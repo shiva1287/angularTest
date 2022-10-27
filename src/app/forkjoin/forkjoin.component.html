@@ -1,0 +1,24 @@
+<p>forkjoin works!</p>
+
+<!-- // fetch the github details for 2 users and display in a table -->
+
+<table class="table table-boredered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>login Id</th>
+      <th>name</th>
+      <th>followers</th>
+      <th>following</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of finaldata">
+      <td>{{ data.id }}</td>
+      <td>{{ data.login }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.followers }}</td>
+      <td>{{ data.following }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+<h1>Users data</h1>
+<table class="table table-bordered">
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+  </tr>
+</table>
+==================================================
+<h1>Comments list</h1>
+<table class="table table-bordered">
+  <tr *ngFor="let comment of comments">
+    <td>{{ comment.id }}</td>
+    <td>{{ comment.name }}</td>
+    <td>{{ comment.email }}</td>
+    <td>{{ comment.body }}</td>
+  </tr>
+</table>

@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h3 class="text-center">User List</h3>
+      <button (click)="fetchUsers()">Fetch User</button>
+      <img *ngIf="isLoading" src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif" alt="">
+      <table *ngIf="!isLoading" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>address</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.address }}</td>
+            <td>
+                <button (click)="delete(user.id)" class="btn btn-danger">DEL</button>
+                &nbsp;
+                <button (click)="delete(user.id)" class="btn btn-secondary">EDIT</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-center">User Add</h3>
+      Name: <input #name /> <br/>
+      Email: <input #email /> <br/>
+      Phone: <input #phone /> <br/>
+      Address: <input #address /> <br/><br/>
+      <button (click)="addNewUser(name.value,email.value,phone.value,address.value)" class="btn btn-primary">Add User</button>
+    </div>
+  </div>
+</div>

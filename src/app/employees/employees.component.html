@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="text-center">Employee List</h1>
+            <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>SL No</th>
+                    <th>Emp id</th>
+                    <th>Emp name</th>
+                    <th>Salary</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let emp of employees; let i = index;trackBy:trackByEmpId">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ emp.eId }}</td>
+                    <td>{{ emp.name }}</td>
+                    <td>{{ emp.sal }}</td>
+                    <td>
+                        <button class="btn btn-danger">DELETE</button>&nbsp;
+                        <button class="btn btn-primary">VIEW</button>&nbsp;
+                        <button class="btn btn-secondary">EDIT</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="col-sm-4">
+            <h1 class="text-center">Employee Add</h1>
+            <form action="">
+                eid: <input type="text"> <br/><br/>
+                name: <input type="text"> <br/><br/>
+                sal: <input type="text"> <br/><br/>
+                <button class="btn btn-primary">Add Emp</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<button (click)="mathService.name ='NareshhhhhhhhhITTTT'">change service data</button>
+<div>{{mathService.name}}</div>
+

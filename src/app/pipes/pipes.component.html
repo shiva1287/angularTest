@@ -1,0 +1,58 @@
+<p>pipes works!</p>
+
+<h4>{{ name }}</h4>
+<h4>{{ name | uppercase }}</h4>
+<h4>{{ name | lowercase }}</h4>
+<h4>{{ name | titlecase }}</h4>
+
+<h4>{{ mySal }}</h4>
+<h4>{{ mySal | currency }}</h4>
+<h4>{{ mySal | currency: "INR" }}</h4>
+<h4>{{ mySal | currency: "&yen;" }}</h4>
+<h4>{{ mySal | currency: "&euro;" }}</h4>
+<!-- input  pipe pipeName Argument -->
+
+<h4>{{ today }}</h4>
+<h4>{{ today | date }}</h4>
+<h4>{{ today | date: "fullDate" }}</h4>
+<h4>{{ today | date: "mediumDate" }}</h4>
+<h4>{{ today | date: "shortDate" }}</h4>
+<h4>{{ today | date: "fullTime" }}</h4>
+<h4>{{ today | date: "mediumTime" }}</h4>
+<h4>{{ today | date: "shortTime" }}</h4>
+<h4>{{ today | date: "dd.MMMM.yyyy" }}</h4>
+<h4>{{ today | date: "dd.MMM.yyyy" }}</h4>
+<h4>{{ today | date: "dd / MM / yy" }}</h4>
+<h4>{{ today | date: "dd / mm / yy" }}</h4>
+<h4>{{ today | date: "fullTime":"UTC" }}</h4>
+================================================================
+<h4>{{ 2585285762678 | number }}</h4>
+<h4>{{ 258.5285762678 | number }}</h4>
+<h4>{{ 25.5285762678 | number: "3.2-4" }}</h4>
+<h4>{{ 25.5 | number: "3.2-4" }}</h4>
+<h4>{{ 25.111262333444 | number: "3.2-4" }}</h4>
+<h4>{{ 0.25 | percent }}</h4>
+==================================================================
+<h4>{{ user }}</h4>
+<h4>{{ user | json }}</h4>
+
+<h4 *ngFor="let entry of user | keyvalue">
+  {{ entry.key }}---{{ entry.value }}
+</h4>
+
+<h4>{{ arr | slice: 2 }}</h4>
+<h4>{{ arr | slice: 2:4 }}</h4>
+<h4>{{ arr | slice: 2:-1 }}</h4>
+=======================================================================<br />
+<textarea cols="30" rows="5" [(ngModel)]="msg" maxlength="200"></textarea>
+<div>msg is: {{ msg }}</div>
+<div>Remainig Chars: {{ msg | remaining }}</div>
+<br/>=======================================================================<br />
+unsorted arr : 
+<span *ngFor="let item of arr">{{item}}, &nbsp;</span> <br/>
+sorted
+<span *ngFor="let item of arr | mySort">{{item}}, &nbsp;</span>
+
+<input type="number" #newNum >
+<button (click)="arr.push(+newNum.value)">push new val</button>
+

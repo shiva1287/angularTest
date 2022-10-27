@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">Employee List - Emp Component-{{mathService.name}}</h1>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>SL No</th>
+            <th>Emp id</th>
+            <th>Emp name</th>
+            <th>Salary</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ emp.eId }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.sal }}</td>
+            <td>{{ emp.gender }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button (click)="getAllEmps()">get male emps</button>&nbsp;
+      <button (click)="getMaleEmps()">get male emps</button>&nbsp;
+      <button (click)="getFemaleEmps()">get female emps</button>
+    </div>
+  </div>
+</div>

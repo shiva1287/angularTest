@@ -1,0 +1,11 @@
+<p>child1 works!</p>
+<div>My Parent's data a is- {{aChild1}}</div>
+<div>My own data name is- {{name}}</div>
+<div>2 way binding: <input [(ngModel)]="name" /></div>
+<button (click)="sendDataToParent()">Send data to parent</button>
+
+<div>cars from parent: <span *ngFor="let car of cars">{{car}},</span></div>
+<button (click)="refresh">refresh my comp</button>
+
+<!-- <div>Name from Math service is {{mathObj.name}}</div>
+<button (click)="mathObj.name='naresh Hyd'">click to change name</button> -->

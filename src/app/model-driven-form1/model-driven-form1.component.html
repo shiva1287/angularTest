@@ -1,0 +1,53 @@
+<p>model-driven-form1 works!</p>
+
+<form [formGroup]="registrationForm">
+  <p>
+    firstName : <input formControlName="firstName" />
+    <span
+      class="text-danger"
+      *ngIf="
+        registrationForm.controls.firstName.hasError('required') &&
+        registrationForm.controls.firstName.dirty
+      "
+      >FirstName is Required</span
+    >
+    <span
+      class="text-danger"
+      *ngIf="
+        registrationForm.controls.firstName.hasError('minlength') &&
+        registrationForm.controls.firstName.dirty
+      "
+      >minimum 5chars Required</span
+    >
+  </p>
+  <p>lastName : <input formControlName="lastName" /></p>
+  <p>
+    Email : <input formControlName="email" />
+    <span
+      class="text-danger"
+      *ngIf="
+        registrationForm.controls.email.hasError('required') &&
+        registrationForm.controls.email.dirty
+      "
+      >email is Required</span
+    >
+    <span
+      class="text-danger"
+      *ngIf="
+        registrationForm.controls.email.hasError('email') &&
+        registrationForm.controls.email.dirty
+      "
+      >email is not in right format</span
+    >
+  </p>
+
+  <div formGroupName="address">
+    <p>street : <input formControlName="street" /></p>
+    <p>city : <input formControlName="city" /></p>
+    <p>pin : <input formControlName="pin" /></p>
+  </div>
+  <input type="reset" value="clear" />
+  <input type="submit" value="Submit" />
+</form>
+
+<h3>{{ registrationForm.value | json }}</h3>

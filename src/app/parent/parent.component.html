@@ -1,0 +1,29 @@
+<div class="parent container">
+  <div class="row">
+    <div>I am parent component</div>
+    <div>my own data a is- {{ a }}</div>
+    <div>
+      my own data a is- <input #myInputBox type="number" [(ngModel)]="a" />
+      <input #myInputBox type="number" [(ngModel)]="a" />
+    </div>
+    <div>my child's data name is- {{ name }}</div>
+    <div>I can pull the data from my child- {{ child1.name }}</div>
+    <div>
+      cars: <span *ngFor="let car of cars">{{ car }},</span>
+    </div>
+    <button (click)="cars.push('Hundai')" class="btn">add a new car</button>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 child">
+      <app-child1
+        [aChild1]="a"
+        #child1
+        (eventObj1)="receiveDataFromChild($event)"
+        [cars]="cars"
+      ></app-child1>
+    </div>
+    <div class="col-sm-6 child">
+      <app-child2 [a]="a" [child1Ref]="child1"></app-child2>
+    </div>
+  </div>
+</div>

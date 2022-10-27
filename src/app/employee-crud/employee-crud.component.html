@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+        <div class="col-sm-6 child">
+            <!--<app-employee-list [empList]='employees'></app-employee-list>-->
+        </div>
+        <div class="col-sm-6 child">
+            <app-employee-add (addEmpEvent)='getDataFromChild($event)'></app-employee-add>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+   <div class="row">
+    <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="form-outline">
+      <input [(ngModel)]="searchText" type="search"  class="form-control" placeholder="Search..." />
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <button class="btn btn-primary" (click)="SortProducts('asc')">Price Asc</button>
+    <button class="btn btn-secondary" (click)="SortProducts('desc')">Price Desc</button>
+  </div>
+   </div>
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let prod of products | paginate: { itemsPerPage: 4, currentPage: p } | filter : searchText">
+            <div class="card">
+                <img [src]="prod.images[0]" height=200px class="card-img-top" alt="img">
+                <div class="card-body text-center" height="200px">
+                  <h5 class="card-title">{{prod.title}}</h5>
+                  <p class="card-text">{{prod.description}}</p>
+                  <p class="card-text">Price: rs.{{prod.price}}</p>
+                  <p class="card-text">Rating: {{prod.rating}}</p>
+                  <button class="btn btn-primary" (click)="addToCart(prod)">Add To Cart</button>&nbsp;
+                  <button class="btn btn-secondary">Wishlist</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

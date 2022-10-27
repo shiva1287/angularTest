@@ -1,0 +1,22 @@
+<h2 class="text-center">Template driven form</h2>
+
+<form #myForm="ngForm" (submit)="submitMyForm(myForm)" class="jumbotron text-center">
+  <p>FirstName: <input name="firstName" ngModel required /></p>
+  <p>lastName: <input name="lastName" ngModel minlength=5 required /></p>
+  <p>email: <input name="email" ngModel type='email' required /></p>
+
+  <div ngModelGroup="address">
+    <p>street: <input name="street" ngModel /></p>
+    <p>city: <input name="city" ngModel /></p>
+    <p>PIN: <input name="pin" ngModel /></p>
+  </div>
+
+  <input type="submit" value="Submit" [disabled]="!myForm.valid" />
+  <input type="reset" value="Clear"  />
+</form>
+<button (click)="clearMyForm(myForm)">Clear</button>
+
+<h4>{{ myForm.value | json }}</h4>
+<h4>{{ myForm.status }}</h4>
+
+<button (click)="updatelastName()">update lastname</button>
